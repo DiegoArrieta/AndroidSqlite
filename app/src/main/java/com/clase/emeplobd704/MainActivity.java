@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 registro.put("nombre",nombre);
                 registro.put("precio", pre);
                 registro.put("cantidad", cant);
-
                 db.insert("producto", null, registro);
                 db.close();
+                limpiar();
 
 
 
@@ -133,5 +133,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+    }
+
+    private void limpiar() {
+        txt_codigo.setText("");
+        txt_precio.setText("");
+        txt_cantidad.setText("");
+        txt_nombre.setText("");
+        txt_codigo.requestFocus();
     }
 }
