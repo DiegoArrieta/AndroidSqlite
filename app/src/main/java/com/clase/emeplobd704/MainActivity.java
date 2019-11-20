@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ApplicationErrorReport;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText txt_codigo, txt_nombre, txt_precio, txt_cantidad;
-    private Button btn_insertar, btn_buscar, btn_eliminar, btn_actualizar;
+    private Button btn_insertar, btn_buscar, btn_eliminar, btn_actualizar, btn_mostrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn_buscar = (Button)findViewById(R.id.btn_buscar);
         btn_eliminar = (Button)findViewById(R.id.btn_eliminar);
         btn_actualizar= (Button)findViewById(R.id.btn_actualizar);
+        btn_mostrar = (Button)findViewById(R.id.btn_mostrar_registros);
         btn_insertar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +123,14 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
+            }
+        });
+
+        btn_mostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),RegistroActivity.class);
+                startActivity(i);
             }
         });
     }
